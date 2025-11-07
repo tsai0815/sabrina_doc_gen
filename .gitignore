@@ -16,3 +16,5 @@ __pycache__/
 # 系統檔案
 .DS_Store
 Thumbs.db
+
+src/json_preview.py
