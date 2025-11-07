@@ -1,7 +1,6 @@
 import json
-import os
 from pathlib import Path
-from typing import Dict, Any, List, Tuple
+from typing import Dict, Any, List, Tuple, Optional
 
 from multilspy import SyncLanguageServer
 from multilspy.multilspy_config import MultilspyConfig
@@ -30,11 +29,38 @@ def find_symbol_positions(src: str, name: str) -> List[Tuple[int, int]]:
     return hits
 
 
+def flatten_symbols(symbols: Any) -> List[Dict[str, Any]]:
+    """Flatten a possibly nested LSP symbol tree into a flat list of dicts."""
+    flat: List[Dict[str, Any]] = []
+    stack: List[Any] = list(symbols or [])
+    while stack:
+        node = stack.pop(0)
+        if node is None:
+            continue
+        if isinstance(node, dict):
+            flat.append(node)
+            children = node.get("children") or []
+            if isinstance(children, list) and children:
+                stack = list(children) + stack
+        elif isinstance(node, list):
+            if node:
+                stack = list(node) + stack
+        else:
+            continue
+    return flat
+
+
 def lsp_scan_repo(repo_root: Path, code_language: str = "python") -> Dict[str, Any]:
     """
-    Use multilspy's SyncLanguageServer to scan an entire project directory:
-      - Retrieve document symbols (functions, classes, variables)
-      - Optionally query references, definitions, and hover info
+    Scan a project directory and emit compact JSON:
+      {
+        "repo_root": ..., "language": ..., "files": [
+          {"file": "relative/path.py", "symbols": [
+             {"name": str, "kind": int, "range": {...}, "selectionRange": {...},
+              "detail": str|None, "references": [...], "definitions": [...], "hover": {...}|None}
+          ]}
+        ]
+      }
     """
     logger = MultilspyLogger()
     config = MultilspyConfig.from_dict({"code_language": code_language})
@@ -50,48 +76,19 @@ def lsp_scan_repo(repo_root: Path, code_language: str = "python") -> Dict[str, A
             rel_path = str(f.relative_to(repo_root))
             file_text = open_file_text(f)
 
-            # 1) Retrieve document symbols
+            # Request document symbols for this file
             try:
-                symbols = lsp.request_document_symbols(rel_path)
+                symbols_tree = lsp.request_document_symbols(rel_path)
             except Exception as e:
                 print(f"[WARN] document_symbols failed on {rel_path}: {e}")
-                symbols = []
+                symbols_tree = []
 
-            file_entry = {
-                "file": rel_path,
-                "symbols": symbols,
-                "references": [],
-                "definitions": [],
-                "hovers": []
-            }
+            flat_syms = flatten_symbols(symbols_tree)
+            seen_positions: set[Tuple[str, int, int, str]] = set()
+            packed_symbols: List[Dict[str, Any]] = []
 
-            # 2) Flatten symbol tree for convenience
-            def flatten(nodes):
-                stack = list(nodes or [])
-                out = []
-                while stack:
-                    s = stack.pop(0)
-                    # node can be a dict (symbol) or a nested list
-                    if isinstance(s, dict):
-                        out.append(s)
-                        children = s.get("children") or []
-                        if isinstance(children, list) and children:
-                            # prepend so traversal preserves source order
-                            stack = list(children) + stack
-                    elif isinstance(s, list):
-                        # expand nested list nodes preserving order
-                        if s:
-                            stack = list(s) + stack
-                    else:
-                        # ignore unexpected types
-                        continue
-                return out
-
-            flat_symbols = flatten(symbols)
-            seen_positions = set()
-
-            # 3) For each symbol, request references / definitions / hover
-            for s in flat_symbols:
+            # For each symbol, collect references/definitions/hover and attach to the symbol object
+            for s in flat_syms:
                 name = s.get("name")
                 if not isinstance(name, str) or not name:
                     continue
@@ -106,42 +103,44 @@ def lsp_scan_repo(repo_root: Path, code_language: str = "python") -> Dict[str, A
                     continue
                 seen_positions.add(key)
 
+                sym_obj: Dict[str, Any] = {
+                    "name": name,
+                    "kind": s.get("kind"),
+                    "range": s.get("range"),
+                    "selectionRange": s.get("selectionRange"),
+                    "detail": s.get("detail"),
+                    "references": [],
+                    "definitions": [],
+                    "hover": None,
+                }
+
                 # References
                 try:
-                    refs = lsp.request_references(rel_path, line, col)
-                    file_entry["references"].append({
-                        "symbol": name,
-                        "at": {"line": line, "col": col},
-                        "items": refs
-                    })
+                    refs = lsp.request_references(rel_path, line, col) or []
+                    sym_obj["references"] = refs
                 except Exception:
                     pass
 
                 # Definitions
                 try:
-                    defs = lsp.request_definition(rel_path, line, col)
-                    if defs:
-                        file_entry["definitions"].append({
-                            "symbol": name,
-                            "at": {"line": line, "col": col},
-                            "items": defs
-                        })
+                    defs = lsp.request_definition(rel_path, line, col) or []
+                    sym_obj["definitions"] = defs
                 except Exception:
                     pass
 
-                # Hover information (signature, docstring, etc.)
+                # Hover
                 try:
                     hv = lsp.request_hover(rel_path, line, col)
-                    if hv:
-                        file_entry["hovers"].append({
-                            "symbol": name,
-                            "at": {"line": line, "col": col},
-                            "info": hv
-                        })
+                    sym_obj["hover"] = hv
                 except Exception:
                     pass
 
-            results.append(file_entry)
+                packed_symbols.append(sym_obj)
+
+            results.append({
+                "file": rel_path,
+                "symbols": packed_symbols
+            })
 
     return {
         "repo_root": str(repo_root),
@@ -152,7 +151,7 @@ def lsp_scan_repo(repo_root: Path, code_language: str = "python") -> Dict[str, A
 
 def main():
     """Main entry: scan the test project and save results."""
-    repo_root = Path("data/test_proj").resolve()
+    repo_root = Path("data/test_project").resolve()
     out_dir = Path("data/lsp_output")
     out_dir.mkdir(parents=True, exist_ok=True)
 
