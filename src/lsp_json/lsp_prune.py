@@ -2,10 +2,10 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List
 from collections import defaultdict
+import argparse
 
-IN_PATH = Path("data/lsp_output/symbol_grouped.json")
-OUT_PATH = Path("data/lsp_output/symbol_grouped_pruned.json")
 
+DEFAULT_OUT_ROOT = Path("data/lsp_json_outputs")
 PROJECT_ROOT_TOKEN = "PROJECT"
 
 def normalize_path(abs_path: str, repo_root: Path) -> str:
@@ -118,7 +118,23 @@ def detect_repo_root(data: Dict[str, Any]) -> Path:
 
 
 def main():
-    data = json.loads(IN_PATH.read_text(encoding="utf-8"))
+    parser = argparse.ArgumentParser(description="Prune LSP symbol JSON.")
+    parser.add_argument("--input-file", required=True, help="Path to the symbol JSON to prune.")
+    parser.add_argument("--output-dir", help="Directory to store pruned JSON. Default is data/lsp_json_outputs.")
+    parser.add_argument("--output-name", default="03_pruned.json", help="Output filename.")
+    args = parser.parse_args()
+
+    in_path = Path(args.input_file).resolve()
+
+    if args.output_dir:
+        out_dir = Path(args.output_dir).resolve()
+    else:
+        out_dir = DEFAULT_OUT_ROOT.resolve()
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / args.output_name
+
+    data = json.loads(in_path.read_text(encoding="utf-8"))
 
     repo_root = detect_repo_root(data)
     print(f"[INFO] Detected project root: {repo_root}")
@@ -135,9 +151,9 @@ def main():
         symbols_out.append(new_sym)
 
     result = {"symbols": symbols_out}
-    OUT_PATH.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
+    out_path.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    print(f"[INFO] Wrote pruned symbol JSON → {OUT_PATH}")
+    print(f"[INFO] Wrote pruned symbol JSON → {out_path}")
 
 
 if __name__ == "__main__":

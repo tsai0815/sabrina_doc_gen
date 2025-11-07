@@ -1,9 +1,10 @@
 import json
 from pathlib import Path
 from typing import Any, Dict, List, Tuple, Optional, Set
+import argparse
 
-IN_PATH = Path("data/lsp_output/python_multilspy_output.json")
-OUT_PATH = Path("data/lsp_output/dependencies.json")
+
+DEFAULT_OUT_ROOT = Path("data/lsp_json_outputs")
 
 
 # ---------------------------
@@ -262,10 +263,27 @@ def build_dependencies(data: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def main():
-    data = json.loads(IN_PATH.read_text(encoding="utf-8"))
-    deps = build_dependencies(data)
-    OUT_PATH.write_text(json.dumps(deps, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"[INFO] Wrote dependencies → {OUT_PATH}")
+    parser = argparse.ArgumentParser(description="Build dependency JSON from per-function JSON.")
+    parser.add_argument("--input-file", required=True, help="Per-function JSON file.")
+    parser.add_argument("--output-dir", help="Directory to store output JSON.")
+    parser.add_argument("--output-name", default="02_deps.json", help="Output filename.")
+    args = parser.parse_args()
+
+    in_file = Path(args.input_file).resolve()
+    if args.output_dir:
+        output_dir = Path(args.output_dir).resolve()
+    else:
+        output_dir = DEFAULT_OUT_ROOT.resolve()
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    out_file = output_dir / args.output_name
+
+    with in_file.open("r", encoding="utf-8") as f:
+        per_func_json = json.load(f)
+
+    deps_json = build_dependencies(per_func_json)
+    with out_file.open("w", encoding="utf-8") as f:
+        json.dump(deps_json, f, ensure_ascii=False, indent=2)
 
 
 if __name__ == "__main__":

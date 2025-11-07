@@ -1,10 +1,13 @@
 import json
 from pathlib import Path
 from typing import Dict, Any, List, Tuple, Optional
+import argparse
 
 from multilspy import SyncLanguageServer
 from multilspy.multilspy_config import MultilspyConfig
 from multilspy.multilspy_logger import MultilspyLogger
+
+DEFAULT_OUT_ROOT = Path("data/lsp_json_outputs")
 
 
 def open_file_text(path: Path) -> str:
@@ -150,19 +153,24 @@ def lsp_scan_repo(repo_root: Path, code_language: str = "python") -> Dict[str, A
 
 
 def main():
-    """Main entry: scan the test project and save results."""
-    repo_root = Path("data/test_project").resolve()
-    out_dir = Path("data/lsp_output")
-    out_dir.mkdir(parents=True, exist_ok=True)
+    parser = argparse.ArgumentParser(description="Generate per-file LSP JSON.")
+    parser.add_argument("--input-dir", required=True, help="Directory to scan.")
+    parser.add_argument("--output-dir", help="Directory to store output JSON.")
+    parser.add_argument("--output-name", default="00_per_file.json", help="Output filename.")
+    args = parser.parse_args()
 
-    data = lsp_scan_repo(repo_root, code_language="python")
+    input_dir = Path(args.input_dir).resolve()
+    if args.output_dir:
+        output_dir = Path(args.output_dir).resolve()
+    else:
+        output_dir = DEFAULT_OUT_ROOT.resolve()
 
-    out_file = out_dir / "python_multilspy_output.json"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    out_file = output_dir / args.output_name
+    result = lsp_scan_repo(input_dir, code_language="python")
+
     with out_file.open("w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
-    print(f"[INFO] Saved: {out_file}")
-
+        json.dump(result, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
     main()

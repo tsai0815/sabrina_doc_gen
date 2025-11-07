@@ -2,13 +2,11 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, Tuple, Optional, DefaultDict
 from collections import defaultdict
+import argparse
+
 
 # Inputs
-PRUNED_PATH = Path("data/lsp_output/symbol_grouped_pruned.json")  # from lsp_symbol_prune.py
-DEPS_PATH = Path("data/lsp_output/dependencies.json")             # from lsp_build_deps.py
-# Output
-OUT_PATH = Path("data/lsp_output/symbols_with_ids_and_deps.json")
-
+DEFAULT_OUT_ROOT = Path("data/lsp_json_outputs")
 PROJECT_TOKEN = "PROJECT"  # must match your prune step
 
 
@@ -225,11 +223,37 @@ def integrate(pruned: Dict[str, Any], deps: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def main():
-    pruned = load_json(PRUNED_PATH)
-    deps = load_json(DEPS_PATH)
-    out = integrate(pruned, deps)
-    OUT_PATH.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"[INFO] Wrote integrated symbols with IDs and deps → {OUT_PATH}")
+    parser = argparse.ArgumentParser(description="Integrate pruned dependency JSON into final structure.")
+    parser.add_argument("--input-file", required=True, help="Pruned JSON file.")
+    parser.add_argument("--deps-file", required=True, help="Dependencies JSON file.")
+    parser.add_argument("--output-dir", help="Directory to store final JSON.")
+    parser.add_argument("--output-name", default="final_integrated.json", help="Output filename.")
+    args = parser.parse_args()
+
+    in_file = Path(args.input_file).resolve()
+    deps_file = Path(args.deps_file).resolve()
+
+    if args.output_dir:
+        output_dir = Path(args.output_dir).resolve()
+    else:
+        output_dir = DEFAULT_OUT_ROOT.resolve()
+    output_dir.mkdir(parents=True, exist_ok=True)
+    out_file = output_dir / args.output_name
+
+    # Load pruned and deps JSON
+    with in_file.open("r", encoding="utf-8") as f:
+        pruned_json = json.load(f)
+    with deps_file.open("r", encoding="utf-8") as f:
+        deps_json = json.load(f)
+
+    # Integrate both
+    final_json = integrate(pruned_json, deps_json)
+
+    with out_file.open("w", encoding="utf-8") as f:
+        json.dump(final_json, f, ensure_ascii=False, indent=2)
+
+    print(f"[INFO] Saved integrated JSON → {out_file}")
+
 
 
 if __name__ == "__main__":

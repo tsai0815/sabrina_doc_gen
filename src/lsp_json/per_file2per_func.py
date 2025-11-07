@@ -2,11 +2,11 @@ import json
 from pathlib import Path
 from typing import Dict, Any, List, Tuple, DefaultDict
 from collections import defaultdict
+import argparse
 
-# Input / Output paths
-IN_PATH = Path("data/lsp_output/python_multilspy_output.json")
-OUT_PATH = Path("data/lsp_output/symbol_grouped.json")
 
+DEFAULT_OUT_ROOT = Path("data/lsp_json_outputs")
+    
 
 def merge_symbols_by_file_and_name(data: Dict[str, Any]) -> Dict[str, Any]:
     """
@@ -55,12 +55,28 @@ def merge_symbols_by_file_and_name(data: Dict[str, Any]) -> Dict[str, Any]:
 
 def main():
     """Main entry: read the original LSP JSON, merge symbols, and save grouped output."""
-    data = json.loads(IN_PATH.read_text(encoding="utf-8"))
-    merged = merge_symbols_by_file_and_name(data)
+    
+    parser = argparse.ArgumentParser(description="Convert per-file JSON to per-function JSON.")
+    parser.add_argument("--input-file", required=True, help="Per-file JSON produced by lsp_per_file.py.")
+    parser.add_argument("--output-dir", help="Directory to store output JSON.")
+    parser.add_argument("--output-name", default="01_per_func.json", help="Output filename.")
+    args = parser.parse_args()
 
-    OUT_PATH.write_text(json.dumps(merged, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"[INFO] Wrote grouped symbol JSON → {OUT_PATH}")
+    in_file = Path(args.input_file).resolve()
+    if args.output_dir:
+        output_dir = Path(args.output_dir).resolve()
+    else:
+        output_dir = DEFAULT_OUT_ROOT.resolve()
+    output_dir.mkdir(parents=True, exist_ok=True)
+    out_file = output_dir / args.output_name
 
+    with in_file.open("r", encoding="utf-8") as f:
+        per_file_json = json.load(f)
+
+    per_func_json = merge_symbols_by_file_and_name(per_file_json)
+
+    with out_file.open("w", encoding="utf-8") as f:
+        json.dump(per_func_json, f, ensure_ascii=False, indent=2)
 
 if __name__ == "__main__":
     main()
