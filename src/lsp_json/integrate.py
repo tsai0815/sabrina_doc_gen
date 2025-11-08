@@ -216,6 +216,7 @@ def integrate(pruned: Dict[str, Any], deps: Dict[str, Any]) -> Dict[str, Any]:
 
     result = {
         "projectRootToken": PROJECT_TOKEN,
+        "repoRoot": pruned.get("repoRoot", ""),
         "symbols": sorted(symbols_out, key=lambda x: x["id"]),
         "externals": sorted(externals.values(), key=lambda x: x["id"]),
     }

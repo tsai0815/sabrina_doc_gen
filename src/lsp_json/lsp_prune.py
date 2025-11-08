@@ -157,7 +157,7 @@ def main():
         }
         symbols_out.append(new_sym)
 
-    result = {"symbols": symbols_out}
+    result = {"repoRoot": str(repo_root), "symbols": symbols_out}
     out_path.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
 
     print(f"[INFO] Wrote pruned symbol JSON → {out_path}")
