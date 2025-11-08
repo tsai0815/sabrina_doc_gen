@@ -90,6 +90,7 @@ def main():
 
     out = {
         "projectRootToken": data.get("projectRootToken", "PROJECT"),
+        "repoRoot": data.get("repoRoot", ""),
         "symbols": final_syms,
         "externals": externals,  # always pass-through externals table for reference
         "meta": {
