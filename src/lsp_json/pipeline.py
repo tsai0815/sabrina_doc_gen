@@ -59,7 +59,7 @@ def main():
     per_func_json = output_dir / "01_per_func.json"
     deps_json = output_dir / "02_deps.json"
     pruned_json = output_dir / "03_pruned.json"
-    final_json = output_dir / "final_integrated.json"
+    final_json = output_dir / "04_final_integrated.json"
 
     # 1. per-file
     run([
@@ -91,6 +91,7 @@ def main():
         "--input-file", str(per_func_json),
         "--output-dir", str(output_dir),
         "--output-name", pruned_json.name,
+        "--repo-root", str(input_dir),   # Pass default repo root from pipeline
     ])
 
     # 5. integrate

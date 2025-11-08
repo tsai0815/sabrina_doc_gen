@@ -122,6 +122,8 @@ def main():
     parser.add_argument("--input-file", required=True, help="Path to the symbol JSON to prune.")
     parser.add_argument("--output-dir", help="Directory to store pruned JSON. Default is data/lsp_json_outputs.")
     parser.add_argument("--output-name", default="03_pruned.json", help="Output filename.")
+    parser.add_argument("--repo-root", help="(Optional) Explicit project root; if not set, auto-detect.")
+
     args = parser.parse_args()
 
     in_path = Path(args.input_file).resolve()
@@ -136,14 +138,19 @@ def main():
 
     data = json.loads(in_path.read_text(encoding="utf-8"))
 
-    repo_root = detect_repo_root(data)
-    print(f"[INFO] Detected project root: {repo_root}")
+    if args.repo_root:
+        repo_root = Path(args.repo_root).resolve()
+        print(f"[INFO] Using provided repo root: {repo_root}")
+    else:
+        repo_root = detect_repo_root(data)
+        print(f"[INFO] Detected project root: {repo_root}")
 
     symbols_out = []
     for sym in data.get("symbols", []):
         new_sym = {
             "file": sym.get("file"),
             "name": sym.get("name"),
+            "range": sym.get("range"), 
             "references": prune_references(sym.get("references", []), repo_root),
             "definitions": prune_definitions(sym.get("definitions", []), repo_root),
             "hover": prune_hover(sym.get("hover")),
