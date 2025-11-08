@@ -1,5 +1,5 @@
 # 忽略 data 資料夾
-data/
+data/outputs
 
 # Python 暫存與快取
 __pycache__/
