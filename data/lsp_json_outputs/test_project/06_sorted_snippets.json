@@ -1,164 +1,494 @@
-[
-  {
-    "id": "PROJECT/logger.py:log_message",
-    "name": "log_message",
-    "file": "logger.py",
-    "fileAbs": "/app/data/test_project/logger.py",
-    "range": {
-      "start": {
-        "line": 2,
-        "character": 0
+{
+  "projectRootToken": "PROJECT",
+  "repoRoot": "/app/data/test_project",
+  "symbols": [
+    {
+      "id": "PROJECT/logger.py:log_message",
+      "file": "logger.py",
+      "name": "log_message",
+      "range": {
+        "start": {
+          "line": 2,
+          "character": 0
+        },
+        "end": {
+          "line": 5,
+          "character": 28
+        }
       },
-      "end": {
-        "line": 5,
-        "character": 28
-      }
+      "references": [
+        {
+          "absolutePath": "PROJECT/data_utils.py",
+          "count": 20
+        },
+        {
+          "absolutePath": "PROJECT/logger.py",
+          "count": 4
+        },
+        {
+          "absolutePath": "PROJECT/main.py",
+          "count": 20
+        },
+        {
+          "absolutePath": "PROJECT/math_utils.py",
+          "count": 12
+        }
+      ],
+      "definitions": [
+        {
+          "absolutePath": "PROJECT/logger.py"
+        }
+      ],
+      "hover": [
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef log_message(msg)\n```\n---\nPrint a timestamped log message.\n**Full name:** `logger.log_message`"
+          }
+        },
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef log_message(msg)\n```\n---\nPrint a timestamped log message.\n**Full name:** `logger.log_message`"
+          }
+        },
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef log_message(msg)\n```\n---\nPrint a timestamped log message.\n**Full name:** `logger.log_message`"
+          }
+        },
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef log_message(msg)\n```\n---\nPrint a timestamped log message.\n**Full name:** `logger.log_message`"
+          }
+        }
+      ],
+      "calls": [
+        "/usr/lib/python3.10/datetime.py:datetime"
+      ],
+      "calledBy": [
+        "PROJECT/data_utils.py:load_data",
+        "PROJECT/data_utils.py:preprocess_data",
+        "PROJECT/main.py:main",
+        "PROJECT/math_utils.py:compute_average",
+        "PROJECT/math_utils.py:compute_variance"
+      ]
     },
-    "effectiveRange": {
-      "start": {
-        "line": 2,
-        "character": 0
+    {
+      "id": "PROJECT/math_utils.py:compute_average",
+      "file": "math_utils.py",
+      "name": "compute_average",
+      "range": {
+        "start": {
+          "line": 2,
+          "character": 0
+        },
+        "end": {
+          "line": 7,
+          "character": 36
+        }
       },
-      "end": {
-        "line": 5,
-        "character": 28
-      }
+      "references": [
+        {
+          "absolutePath": "PROJECT/main.py",
+          "count": 4
+        },
+        {
+          "absolutePath": "PROJECT/math_utils.py",
+          "count": 4
+        }
+      ],
+      "definitions": [
+        {
+          "absolutePath": "PROJECT/math_utils.py"
+        }
+      ],
+      "hover": [
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef compute_average(values)\n```\n---\nCompute the average of a list of numbers.\n**Full name:** `math_utils.compute_average`"
+          }
+        },
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef compute_average(values)\n```\n---\nCompute the average of a list of numbers.\n**Full name:** `math_utils.compute_average`"
+          }
+        }
+      ],
+      "calls": [
+        "PROJECT/logger.py:log_message"
+      ],
+      "calledBy": [
+        "PROJECT/main.py:main",
+        "PROJECT/math_utils.py:compute_variance"
+      ]
     },
-    "code_snippet": "def log_message(msg):\n    \"\"\"Print a timestamped log message.\"\"\"\n    time = datetime.datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n    print(f\"[{time}] {msg}\")"
+    {
+      "id": "PROJECT/math_utils.py:compute_variance",
+      "file": "math_utils.py",
+      "name": "compute_variance",
+      "range": {
+        "start": {
+          "line": 9,
+          "character": 0
+        },
+        "end": {
+          "line": 15,
+          "character": 61
+        }
+      },
+      "references": [
+        {
+          "absolutePath": "PROJECT/main.py",
+          "count": 4
+        },
+        {
+          "absolutePath": "PROJECT/math_utils.py",
+          "count": 2
+        }
+      ],
+      "definitions": [
+        {
+          "absolutePath": "PROJECT/math_utils.py"
+        }
+      ],
+      "hover": [
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef compute_variance(values)\n```\n---\nCompute the variance of a list of numbers.\n**Full name:** `math_utils.compute_variance`"
+          }
+        },
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef compute_variance(values)\n```\n---\nCompute the variance of a list of numbers.\n**Full name:** `math_utils.compute_variance`"
+          }
+        }
+      ],
+      "calls": [
+        "PROJECT/logger.py:log_message",
+        "PROJECT/math_utils.py:compute_average"
+      ],
+      "calledBy": [
+        "PROJECT/main.py:main"
+      ]
+    },
+    {
+      "id": "PROJECT/data_utils.py:preprocess_data",
+      "file": "data_utils.py",
+      "name": "preprocess_data",
+      "range": {
+        "start": {
+          "line": 17,
+          "character": 0
+        },
+        "end": {
+          "line": 22,
+          "character": 18
+        }
+      },
+      "references": [
+        {
+          "absolutePath": "PROJECT/data_utils.py",
+          "count": 2
+        },
+        {
+          "absolutePath": "PROJECT/main.py",
+          "count": 4
+        }
+      ],
+      "definitions": [
+        {
+          "absolutePath": "PROJECT/data_utils.py"
+        }
+      ],
+      "hover": [
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef preprocess_data(data)\n```\n---\nClean data by removing negative values.\n**Full name:** `data_utils.preprocess_data`"
+          }
+        },
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef preprocess_data(data)\n```\n---\nClean data by removing negative values.\n**Full name:** `data_utils.preprocess_data`"
+          }
+        }
+      ],
+      "calls": [
+        "PROJECT/logger.py:log_message"
+      ],
+      "calledBy": [
+        "PROJECT/main.py:main"
+      ]
+    },
+    {
+      "id": "PROJECT/data_utils.py:load_data",
+      "file": "data_utils.py",
+      "name": "load_data",
+      "range": {
+        "start": {
+          "line": 3,
+          "character": 0
+        },
+        "end": {
+          "line": 15,
+          "character": 15
+        }
+      },
+      "references": [
+        {
+          "absolutePath": "PROJECT/data_utils.py",
+          "count": 2
+        },
+        {
+          "absolutePath": "PROJECT/main.py",
+          "count": 4
+        }
+      ],
+      "definitions": [
+        {
+          "absolutePath": "PROJECT/data_utils.py"
+        }
+      ],
+      "hover": [
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef load_data(filepath)\n```\n---\nLoad numeric data from a CSV file.\n**Full name:** `data_utils.load_data`"
+          }
+        },
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef load_data(filepath)\n```\n---\nLoad numeric data from a CSV file.\n**Full name:** `data_utils.load_data`"
+          }
+        }
+      ],
+      "calls": [
+        "/usr/lib/python3.10/csv.py:csv",
+        "PROJECT/logger.py:log_message"
+      ],
+      "calledBy": [
+        "PROJECT/main.py:main"
+      ]
+    },
+    {
+      "id": "PROJECT/main.py:main",
+      "file": "main.py",
+      "name": "main",
+      "range": {
+        "start": {
+          "line": 4,
+          "character": 0
+        },
+        "end": {
+          "line": 20,
+          "character": 50
+        }
+      },
+      "references": [
+        {
+          "absolutePath": "PROJECT/main.py",
+          "count": 2
+        }
+      ],
+      "definitions": [
+        {
+          "absolutePath": "PROJECT/main.py"
+        }
+      ],
+      "hover": [
+        {
+          "contents": {
+            "kind": "markdown",
+            "value": "```python\ndef main()\n```\n---\nMain entry point of the project.\n**Full name:** `main.main`"
+          }
+        }
+      ],
+      "calls": [
+        "PROJECT/data_utils.py:load_data",
+        "PROJECT/data_utils.py:preprocess_data",
+        "PROJECT/logger.py:log_message",
+        "PROJECT/math_utils.py:compute_average",
+        "PROJECT/math_utils.py:compute_variance"
+      ],
+      "calledBy": []
+    }
+  ],
+  "externals": [],
+  "meta": {
+    "order": "reverse_topological",
+    "node_count": 6
   },
-  {
-    "id": "PROJECT/math_utils.py:compute_average",
-    "name": "compute_average",
-    "file": "math_utils.py",
-    "fileAbs": "/app/data/test_project/math_utils.py",
-    "range": {
-      "start": {
-        "line": 2,
-        "character": 0
+  "snippets": [
+    {
+      "id": "PROJECT/logger.py:log_message",
+      "name": "log_message",
+      "file": "logger.py",
+      "fileAbs": "/app/data/test_project/logger.py",
+      "range": {
+        "start": {
+          "line": 2,
+          "character": 0
+        },
+        "end": {
+          "line": 5,
+          "character": 28
+        }
       },
-      "end": {
-        "line": 7,
-        "character": 36
-      }
-    },
-    "effectiveRange": {
-      "start": {
-        "line": 2,
-        "character": 0
+      "effectiveRange": {
+        "start": {
+          "line": 2,
+          "character": 0
+        },
+        "end": {
+          "line": 5,
+          "character": 28
+        }
       },
-      "end": {
-        "line": 7,
-        "character": 36
-      }
+      "code_snippet": "def log_message(msg):\n    \"\"\"Print a timestamped log message.\"\"\"\n    time = datetime.datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n    print(f\"[{time}] {msg}\")"
     },
-    "code_snippet": "def compute_average(values):\n    \"\"\"Compute the average of a list of numbers.\"\"\"\n    log_message(\"Computing average...\")\n    if not values:\n        return 0.0\n    return sum(values) / len(values)"
-  },
-  {
-    "id": "PROJECT/math_utils.py:compute_variance",
-    "name": "compute_variance",
-    "file": "math_utils.py",
-    "fileAbs": "/app/data/test_project/math_utils.py",
-    "range": {
-      "start": {
-        "line": 9,
-        "character": 0
+    {
+      "id": "PROJECT/math_utils.py:compute_average",
+      "name": "compute_average",
+      "file": "math_utils.py",
+      "fileAbs": "/app/data/test_project/math_utils.py",
+      "range": {
+        "start": {
+          "line": 2,
+          "character": 0
+        },
+        "end": {
+          "line": 7,
+          "character": 36
+        }
       },
-      "end": {
-        "line": 15,
-        "character": 61
-      }
-    },
-    "effectiveRange": {
-      "start": {
-        "line": 9,
-        "character": 0
+      "effectiveRange": {
+        "start": {
+          "line": 2,
+          "character": 0
+        },
+        "end": {
+          "line": 7,
+          "character": 36
+        }
       },
-      "end": {
-        "line": 15,
-        "character": 61
-      }
+      "code_snippet": "def compute_average(values):\n    \"\"\"Compute the average of a list of numbers.\"\"\"\n    log_message(\"Computing average...\")\n    if not values:\n        return 0.0\n    return sum(values) / len(values)"
     },
-    "code_snippet": "def compute_variance(values):\n    \"\"\"Compute the variance of a list of numbers.\"\"\"\n    log_message(\"Computing variance...\")\n    if not values:\n        return 0.0\n    mean = compute_average(values)\n    return sum((x - mean) ** 2 for x in values) / len(values)"
-  },
-  {
-    "id": "PROJECT/data_utils.py:preprocess_data",
-    "name": "preprocess_data",
-    "file": "data_utils.py",
-    "fileAbs": "/app/data/test_project/data_utils.py",
-    "range": {
-      "start": {
-        "line": 17,
-        "character": 0
+    {
+      "id": "PROJECT/math_utils.py:compute_variance",
+      "name": "compute_variance",
+      "file": "math_utils.py",
+      "fileAbs": "/app/data/test_project/math_utils.py",
+      "range": {
+        "start": {
+          "line": 9,
+          "character": 0
+        },
+        "end": {
+          "line": 15,
+          "character": 61
+        }
       },
-      "end": {
-        "line": 22,
-        "character": 18
-      }
-    },
-    "effectiveRange": {
-      "start": {
-        "line": 17,
-        "character": 0
+      "effectiveRange": {
+        "start": {
+          "line": 9,
+          "character": 0
+        },
+        "end": {
+          "line": 15,
+          "character": 61
+        }
       },
-      "end": {
-        "line": 22,
-        "character": 18
-      }
+      "code_snippet": "def compute_variance(values):\n    \"\"\"Compute the variance of a list of numbers.\"\"\"\n    log_message(\"Computing variance...\")\n    if not values:\n        return 0.0\n    mean = compute_average(values)\n    return sum((x - mean) ** 2 for x in values) / len(values)"
     },
-    "code_snippet": "def preprocess_data(data):\n    \"\"\"Clean data by removing negative values.\"\"\"\n    log_message(\"Preprocessing data (remove negatives)...\")\n    cleaned = [x for x in data if x >= 0]\n    log_message(f\"Cleaned {len(data) - len(cleaned)} invalid entries.\")\n    return cleaned"
-  },
-  {
-    "id": "PROJECT/data_utils.py:load_data",
-    "name": "load_data",
-    "file": "data_utils.py",
-    "fileAbs": "/app/data/test_project/data_utils.py",
-    "range": {
-      "start": {
-        "line": 3,
-        "character": 0
+    {
+      "id": "PROJECT/data_utils.py:preprocess_data",
+      "name": "preprocess_data",
+      "file": "data_utils.py",
+      "fileAbs": "/app/data/test_project/data_utils.py",
+      "range": {
+        "start": {
+          "line": 17,
+          "character": 0
+        },
+        "end": {
+          "line": 22,
+          "character": 18
+        }
       },
-      "end": {
-        "line": 15,
-        "character": 15
-      }
-    },
-    "effectiveRange": {
-      "start": {
-        "line": 3,
-        "character": 0
+      "effectiveRange": {
+        "start": {
+          "line": 17,
+          "character": 0
+        },
+        "end": {
+          "line": 22,
+          "character": 18
+        }
       },
-      "end": {
-        "line": 15,
-        "character": 15
-      }
+      "code_snippet": "def preprocess_data(data):\n    \"\"\"Clean data by removing negative values.\"\"\"\n    log_message(\"Preprocessing data (remove negatives)...\")\n    cleaned = [x for x in data if x >= 0]\n    log_message(f\"Cleaned {len(data) - len(cleaned)} invalid entries.\")\n    return cleaned"
     },
-    "code_snippet": "def load_data(filepath):\n    \"\"\"Load numeric data from a CSV file.\"\"\"\n    log_message(f\"Loading data from {filepath}\")\n    with open(filepath, newline='') as csvfile:\n        reader = csv.reader(csvfile)\n        data = []\n        for row in reader:\n            try:\n                val = float(row[0])\n                data.append(val)\n            except (ValueError, IndexError):\n                log_message(f\"Skipping invalid row: {row}\")\n    return data"
-  },
-  {
-    "id": "PROJECT/main.py:main",
-    "name": "main",
-    "file": "main.py",
-    "fileAbs": "/app/data/test_project/main.py",
-    "range": {
-      "start": {
-        "line": 4,
-        "character": 0
+    {
+      "id": "PROJECT/data_utils.py:load_data",
+      "name": "load_data",
+      "file": "data_utils.py",
+      "fileAbs": "/app/data/test_project/data_utils.py",
+      "range": {
+        "start": {
+          "line": 3,
+          "character": 0
+        },
+        "end": {
+          "line": 15,
+          "character": 15
+        }
       },
-      "end": {
-        "line": 20,
-        "character": 50
-      }
-    },
-    "effectiveRange": {
-      "start": {
-        "line": 4,
-        "character": 0
+      "effectiveRange": {
+        "start": {
+          "line": 3,
+          "character": 0
+        },
+        "end": {
+          "line": 15,
+          "character": 15
+        }
       },
-      "end": {
-        "line": 20,
-        "character": 50
-      }
+      "code_snippet": "def load_data(filepath):\n    \"\"\"Load numeric data from a CSV file.\"\"\"\n    log_message(f\"Loading data from {filepath}\")\n    with open(filepath, newline='') as csvfile:\n        reader = csv.reader(csvfile)\n        data = []\n        for row in reader:\n            try:\n                val = float(row[0])\n                data.append(val)\n            except (ValueError, IndexError):\n                log_message(f\"Skipping invalid row: {row}\")\n    return data"
     },
-    "code_snippet": "def main():\n    \"\"\"Main entry point of the project.\"\"\"\n    log_message(\"Starting data processing pipeline...\")\n\n    # Step 1: load CSV data\n    data = load_data(\"data/input.csv\")\n\n    # Step 2: clean negative or invalid entries\n    cleaned = preprocess_data(data)\n\n    # Step 3: compute statistics\n    avg = compute_average(cleaned)\n    var = compute_variance(cleaned)\n\n    log_message(f\"Average value: {avg:.2f}\")\n    log_message(f\"Variance value: {var:.2f}\")\n    log_message(\"Pipeline finished successfully.\")"
-  }
-]
+    {
+      "id": "PROJECT/main.py:main",
+      "name": "main",
+      "file": "main.py",
+      "fileAbs": "/app/data/test_project/main.py",
+      "range": {
+        "start": {
+          "line": 4,
+          "character": 0
+        },
+        "end": {
+          "line": 20,
+          "character": 50
+        }
+      },
+      "effectiveRange": {
+        "start": {
+          "line": 4,
+          "character": 0
+        },
+        "end": {
+          "line": 20,
+          "character": 50
+        }
+      },
+      "code_snippet": "def main():\n    \"\"\"Main entry point of the project.\"\"\"\n    log_message(\"Starting data processing pipeline...\")\n\n    # Step 1: load CSV data\n    data = load_data(\"data/input.csv\")\n\n    # Step 2: clean negative or invalid entries\n    cleaned = preprocess_data(data)\n\n    # Step 3: compute statistics\n    avg = compute_average(cleaned)\n    var = compute_variance(cleaned)\n\n    log_message(f\"Average value: {avg:.2f}\")\n    log_message(f\"Variance value: {var:.2f}\")\n    log_message(\"Pipeline finished successfully.\")"
+    }
+  ]
+}

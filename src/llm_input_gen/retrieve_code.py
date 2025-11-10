@@ -210,8 +210,10 @@ def main():
             safe_name = sid.replace("/", "_").replace(":", "__")
             (emit_dir / f"{safe_name}.py").write_text(code, encoding="utf-8")
 
-    save_json(out_snippets, Path(args.output_file))
-    print(f"[INFO] Wrote {len(out_snippets)} snippets → {args.output_file}")
+        # Merge snippets back into the original JSON structure
+        data["snippets"] = out_snippets
+        save_json(data, Path(args.output_file))
+        print(f"[INFO] Wrote {len(out_snippets)} snippets and merged into → {args.output_file}")
 
 if __name__ == "__main__":
     main()
