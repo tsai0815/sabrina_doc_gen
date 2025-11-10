@@ -1,5 +1,7 @@
-# 忽略 data 資料夾
-data/outputs
+data/*
+!data/test_project/
+!data/test_project/**
+
 
 # Python 暫存與快取
 __pycache__/
