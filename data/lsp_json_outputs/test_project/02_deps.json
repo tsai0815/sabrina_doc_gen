@@ -1,0 +1,82 @@
+{
+  "function_edges": [
+    {
+      "src": "data_utils.py:load_data",
+      "dst": "../../../usr/lib/python3.10/csv.py:csv"
+    },
+    {
+      "src": "data_utils.py:load_data",
+      "dst": "logger.py:log_message"
+    },
+    {
+      "src": "data_utils.py:preprocess_data",
+      "dst": "logger.py:log_message"
+    },
+    {
+      "src": "main.py:main",
+      "dst": "logger.py:log_message"
+    },
+    {
+      "src": "math_utils.py:compute_average",
+      "dst": "logger.py:log_message"
+    },
+    {
+      "src": "math_utils.py:compute_variance",
+      "dst": "logger.py:log_message"
+    },
+    {
+      "src": "main.py:main",
+      "dst": "data_utils.py:load_data"
+    },
+    {
+      "src": "main.py:main",
+      "dst": "data_utils.py:preprocess_data"
+    },
+    {
+      "src": "main.py:main",
+      "dst": "math_utils.py:compute_average"
+    },
+    {
+      "src": "math_utils.py:compute_variance",
+      "dst": "math_utils.py:compute_average"
+    },
+    {
+      "src": "main.py:main",
+      "dst": "math_utils.py:compute_variance"
+    },
+    {
+      "src": "logger.py:log_message",
+      "dst": "../../../usr/lib/python3.10/datetime.py:datetime"
+    }
+  ],
+  "file_edges": [
+    {
+      "src": "data_utils.py",
+      "dst": "../../../usr/lib/python3.10/csv.py"
+    },
+    {
+      "src": "data_utils.py",
+      "dst": "logger.py"
+    },
+    {
+      "src": "logger.py",
+      "dst": "../../../usr/lib/python3.10/datetime.py"
+    },
+    {
+      "src": "main.py",
+      "dst": "data_utils.py"
+    },
+    {
+      "src": "main.py",
+      "dst": "logger.py"
+    },
+    {
+      "src": "main.py",
+      "dst": "math_utils.py"
+    },
+    {
+      "src": "math_utils.py",
+      "dst": "logger.py"
+    }
+  ]
+}

@@ -103,7 +103,27 @@ def main():
         "--output-name", final_json.name,
     ])
 
-    print("Pipeline finished. Final file:", final_json)
+    # 6. topo sort (produce build/run order of project symbols)
+    sorted_json = output_dir / "05_sorted_topo.json"
+    run([
+        PYTHON, "src/llm_input_gen/topo.py",
+        "--input-file", str(final_json),
+        "--output-file", str(sorted_json),
+        "--reverse"           # remove this flag if you want leaf-first order
+        # "--keep-externals"  # uncomment if you also want externals appended
+    ])
+
+    # 7. retrieve-code (LLM input generator) – use topo-sorted file as input
+    snippets_input = sorted_json 
+    llm_snippets = output_dir / "06_sorted_snippets.json"
+    run([
+        PYTHON, "src/llm_input_gen/retrieve_code.py",
+        "--input-file", str(snippets_input),
+        "--output-file", str(llm_snippets),
+    ])
+
+    print("[INFO] Wrote LLM snippets →", llm_snippets)
+
 
 
 if __name__ == "__main__":

@@ -1,0 +1,2306 @@
+{
+  "repo_root": "/app/data/test_project",
+  "language": "python",
+  "files": [
+    {
+      "file": "data_utils.py",
+      "symbols": [
+        {
+          "name": "csv",
+          "kind": 2,
+          "range": {
+            "start": {
+              "line": 0,
+              "character": 0
+            },
+            "end": {
+              "line": 0,
+              "character": 10
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 0,
+              "character": 7
+            },
+            "end": {
+              "line": 0,
+              "character": 10
+            }
+          },
+          "detail": "module csv",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 7
+                },
+                "end": {
+                  "line": 0,
+                  "character": 10
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 7,
+                  "character": 17
+                },
+                "end": {
+                  "line": 7,
+                  "character": 20
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///usr/lib/python3.10/csv.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 0
+                },
+                "end": {
+                  "line": 0,
+                  "character": 3
+                }
+              },
+              "absolutePath": "/usr/lib/python3.10/csv.py",
+              "relativePath": "../../../usr/lib/python3.10/csv.py"
+            },
+            {
+              "uri": "file:///usr/local/lib/python3.10/dist-packages/jedi/third_party/typeshed/stdlib/2and3/csv.pyi",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 0
+                },
+                "end": {
+                  "line": 0,
+                  "character": 3
+                }
+              },
+              "absolutePath": "/usr/local/lib/python3.10/dist-packages/jedi/third_party/typeshed/stdlib/2and3/csv.pyi",
+              "relativePath": "../../../usr/local/lib/python3.10/dist-packages/jedi/third_party/typeshed/stdlib/2and3/csv.pyi"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///usr/lib/python3.10/csv.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 0
+                },
+                "end": {
+                  "line": 0,
+                  "character": 3
+                }
+              },
+              "absolutePath": "/usr/lib/python3.10/csv.py",
+              "relativePath": "../../../usr/lib/python3.10/csv.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\nmodule csv\n```\n---\n```text\ncsv.py - read/write/investigate CSV files\n```"
+            },
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 7
+              },
+              "end": {
+                "line": 0,
+                "character": 10
+              }
+            }
+          }
+        },
+        {
+          "name": "log_message",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 1,
+              "character": 0
+            },
+            "end": {
+              "line": 1,
+              "character": 30
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 1,
+              "character": 19
+            },
+            "end": {
+              "line": 1,
+              "character": 30
+            }
+          },
+          "detail": "def log_message",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "character": 19
+                },
+                "end": {
+                  "line": 1,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 5,
+                  "character": 4
+                },
+                "end": {
+                  "line": 5,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 14,
+                  "character": 16
+                },
+                "end": {
+                  "line": 14,
+                  "character": 27
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 19,
+                  "character": 4
+                },
+                "end": {
+                  "line": 19,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 21,
+                  "character": 4
+                },
+                "end": {
+                  "line": 21,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/logger.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/logger.py",
+              "relativePath": "logger.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 19
+                },
+                "end": {
+                  "line": 2,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 6,
+                  "character": 4
+                },
+                "end": {
+                  "line": 6,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 18,
+                  "character": 4
+                },
+                "end": {
+                  "line": 18,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 19,
+                  "character": 4
+                },
+                "end": {
+                  "line": 19,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 20,
+                  "character": 4
+                },
+                "end": {
+                  "line": 20,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 19
+                },
+                "end": {
+                  "line": 0,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "character": 4
+                },
+                "end": {
+                  "line": 4,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 11,
+                  "character": 4
+                },
+                "end": {
+                  "line": 11,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/logger.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/logger.py",
+              "relativePath": "logger.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef log_message(msg)\n```\n---\nPrint a timestamped log message.\n**Full name:** `logger.log_message`"
+            },
+            "range": {
+              "start": {
+                "line": 1,
+                "character": 19
+              },
+              "end": {
+                "line": 1,
+                "character": 30
+              }
+            }
+          }
+        },
+        {
+          "name": "load_data",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 3,
+              "character": 0
+            },
+            "end": {
+              "line": 15,
+              "character": 15
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 3,
+              "character": 4
+            },
+            "end": {
+              "line": 3,
+              "character": 13
+            }
+          },
+          "detail": "def load_data",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 3,
+                  "character": 4
+                },
+                "end": {
+                  "line": 3,
+                  "character": 13
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 23
+                },
+                "end": {
+                  "line": 0,
+                  "character": 32
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 9,
+                  "character": 11
+                },
+                "end": {
+                  "line": 9,
+                  "character": 20
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 3,
+                  "character": 4
+                },
+                "end": {
+                  "line": 3,
+                  "character": 13
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef load_data(filepath)\n```\n---\nLoad numeric data from a CSV file.\n**Full name:** `data_utils.load_data`"
+            },
+            "range": {
+              "start": {
+                "line": 3,
+                "character": 4
+              },
+              "end": {
+                "line": 3,
+                "character": 13
+              }
+            }
+          }
+        },
+        {
+          "name": "preprocess_data",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 17,
+              "character": 0
+            },
+            "end": {
+              "line": 22,
+              "character": 18
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 17,
+              "character": 4
+            },
+            "end": {
+              "line": 17,
+              "character": 19
+            }
+          },
+          "detail": "def preprocess_data",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 17,
+                  "character": 4
+                },
+                "end": {
+                  "line": 17,
+                  "character": 19
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 34
+                },
+                "end": {
+                  "line": 0,
+                  "character": 49
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 12,
+                  "character": 14
+                },
+                "end": {
+                  "line": 12,
+                  "character": 29
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 17,
+                  "character": 4
+                },
+                "end": {
+                  "line": 17,
+                  "character": 19
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef preprocess_data(data)\n```\n---\nClean data by removing negative values.\n**Full name:** `data_utils.preprocess_data`"
+            },
+            "range": {
+              "start": {
+                "line": 17,
+                "character": 4
+              },
+              "end": {
+                "line": 17,
+                "character": 19
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "math_utils.py",
+      "symbols": [
+        {
+          "name": "log_message",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 0,
+              "character": 0
+            },
+            "end": {
+              "line": 0,
+              "character": 30
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 0,
+              "character": 19
+            },
+            "end": {
+              "line": 0,
+              "character": 30
+            }
+          },
+          "detail": "def log_message",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "character": 19
+                },
+                "end": {
+                  "line": 1,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 5,
+                  "character": 4
+                },
+                "end": {
+                  "line": 5,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 14,
+                  "character": 16
+                },
+                "end": {
+                  "line": 14,
+                  "character": 27
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 19,
+                  "character": 4
+                },
+                "end": {
+                  "line": 19,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 21,
+                  "character": 4
+                },
+                "end": {
+                  "line": 21,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/logger.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/logger.py",
+              "relativePath": "logger.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 19
+                },
+                "end": {
+                  "line": 2,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 6,
+                  "character": 4
+                },
+                "end": {
+                  "line": 6,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 18,
+                  "character": 4
+                },
+                "end": {
+                  "line": 18,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 19,
+                  "character": 4
+                },
+                "end": {
+                  "line": 19,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 20,
+                  "character": 4
+                },
+                "end": {
+                  "line": 20,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 19
+                },
+                "end": {
+                  "line": 0,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "character": 4
+                },
+                "end": {
+                  "line": 4,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 11,
+                  "character": 4
+                },
+                "end": {
+                  "line": 11,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/logger.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/logger.py",
+              "relativePath": "logger.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef log_message(msg)\n```\n---\nPrint a timestamped log message.\n**Full name:** `logger.log_message`"
+            },
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 19
+              },
+              "end": {
+                "line": 0,
+                "character": 30
+              }
+            }
+          }
+        },
+        {
+          "name": "compute_average",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 2,
+              "character": 0
+            },
+            "end": {
+              "line": 7,
+              "character": 36
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 2,
+              "character": 4
+            },
+            "end": {
+              "line": 2,
+              "character": 19
+            }
+          },
+          "detail": "def compute_average",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "character": 23
+                },
+                "end": {
+                  "line": 1,
+                  "character": 38
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 15,
+                  "character": 10
+                },
+                "end": {
+                  "line": 15,
+                  "character": 25
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 19
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 14,
+                  "character": 11
+                },
+                "end": {
+                  "line": 14,
+                  "character": 26
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 19
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef compute_average(values)\n```\n---\nCompute the average of a list of numbers.\n**Full name:** `math_utils.compute_average`"
+            },
+            "range": {
+              "start": {
+                "line": 2,
+                "character": 4
+              },
+              "end": {
+                "line": 2,
+                "character": 19
+              }
+            }
+          }
+        },
+        {
+          "name": "compute_variance",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 9,
+              "character": 0
+            },
+            "end": {
+              "line": 15,
+              "character": 61
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 9,
+              "character": 4
+            },
+            "end": {
+              "line": 9,
+              "character": 20
+            }
+          },
+          "detail": "def compute_variance",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "character": 40
+                },
+                "end": {
+                  "line": 1,
+                  "character": 56
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 16,
+                  "character": 10
+                },
+                "end": {
+                  "line": 16,
+                  "character": 26
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 9,
+                  "character": 4
+                },
+                "end": {
+                  "line": 9,
+                  "character": 20
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 9,
+                  "character": 4
+                },
+                "end": {
+                  "line": 9,
+                  "character": 20
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef compute_variance(values)\n```\n---\nCompute the variance of a list of numbers.\n**Full name:** `math_utils.compute_variance`"
+            },
+            "range": {
+              "start": {
+                "line": 9,
+                "character": 4
+              },
+              "end": {
+                "line": 9,
+                "character": 20
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "main.py",
+      "symbols": [
+        {
+          "name": "load_data",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 0,
+              "character": 0
+            },
+            "end": {
+              "line": 0,
+              "character": 49
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 0,
+              "character": 23
+            },
+            "end": {
+              "line": 0,
+              "character": 32
+            }
+          },
+          "detail": "def load_data",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 3,
+                  "character": 4
+                },
+                "end": {
+                  "line": 3,
+                  "character": 13
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 23
+                },
+                "end": {
+                  "line": 0,
+                  "character": 32
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 9,
+                  "character": 11
+                },
+                "end": {
+                  "line": 9,
+                  "character": 20
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 3,
+                  "character": 4
+                },
+                "end": {
+                  "line": 3,
+                  "character": 13
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef load_data(filepath)\n```\n---\nLoad numeric data from a CSV file.\n**Full name:** `data_utils.load_data`"
+            },
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 23
+              },
+              "end": {
+                "line": 0,
+                "character": 32
+              }
+            }
+          }
+        },
+        {
+          "name": "preprocess_data",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 0,
+              "character": 0
+            },
+            "end": {
+              "line": 0,
+              "character": 49
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 0,
+              "character": 34
+            },
+            "end": {
+              "line": 0,
+              "character": 49
+            }
+          },
+          "detail": "def preprocess_data",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 17,
+                  "character": 4
+                },
+                "end": {
+                  "line": 17,
+                  "character": 19
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 34
+                },
+                "end": {
+                  "line": 0,
+                  "character": 49
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 12,
+                  "character": 14
+                },
+                "end": {
+                  "line": 12,
+                  "character": 29
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 17,
+                  "character": 4
+                },
+                "end": {
+                  "line": 17,
+                  "character": 19
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef preprocess_data(data)\n```\n---\nClean data by removing negative values.\n**Full name:** `data_utils.preprocess_data`"
+            },
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 34
+              },
+              "end": {
+                "line": 0,
+                "character": 49
+              }
+            }
+          }
+        },
+        {
+          "name": "compute_average",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 1,
+              "character": 0
+            },
+            "end": {
+              "line": 1,
+              "character": 56
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 1,
+              "character": 23
+            },
+            "end": {
+              "line": 1,
+              "character": 38
+            }
+          },
+          "detail": "def compute_average",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "character": 23
+                },
+                "end": {
+                  "line": 1,
+                  "character": 38
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 15,
+                  "character": 10
+                },
+                "end": {
+                  "line": 15,
+                  "character": 25
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 19
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 14,
+                  "character": 11
+                },
+                "end": {
+                  "line": 14,
+                  "character": 26
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 19
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef compute_average(values)\n```\n---\nCompute the average of a list of numbers.\n**Full name:** `math_utils.compute_average`"
+            },
+            "range": {
+              "start": {
+                "line": 1,
+                "character": 23
+              },
+              "end": {
+                "line": 1,
+                "character": 38
+              }
+            }
+          }
+        },
+        {
+          "name": "compute_variance",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 1,
+              "character": 0
+            },
+            "end": {
+              "line": 1,
+              "character": 56
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 1,
+              "character": 40
+            },
+            "end": {
+              "line": 1,
+              "character": 56
+            }
+          },
+          "detail": "def compute_variance",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "character": 40
+                },
+                "end": {
+                  "line": 1,
+                  "character": 56
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 16,
+                  "character": 10
+                },
+                "end": {
+                  "line": 16,
+                  "character": 26
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 9,
+                  "character": 4
+                },
+                "end": {
+                  "line": 9,
+                  "character": 20
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 9,
+                  "character": 4
+                },
+                "end": {
+                  "line": 9,
+                  "character": 20
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef compute_variance(values)\n```\n---\nCompute the variance of a list of numbers.\n**Full name:** `math_utils.compute_variance`"
+            },
+            "range": {
+              "start": {
+                "line": 1,
+                "character": 40
+              },
+              "end": {
+                "line": 1,
+                "character": 56
+              }
+            }
+          }
+        },
+        {
+          "name": "log_message",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 2,
+              "character": 0
+            },
+            "end": {
+              "line": 2,
+              "character": 30
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 2,
+              "character": 19
+            },
+            "end": {
+              "line": 2,
+              "character": 30
+            }
+          },
+          "detail": "def log_message",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "character": 19
+                },
+                "end": {
+                  "line": 1,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 5,
+                  "character": 4
+                },
+                "end": {
+                  "line": 5,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 14,
+                  "character": 16
+                },
+                "end": {
+                  "line": 14,
+                  "character": 27
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 19,
+                  "character": 4
+                },
+                "end": {
+                  "line": 19,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 21,
+                  "character": 4
+                },
+                "end": {
+                  "line": 21,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/logger.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/logger.py",
+              "relativePath": "logger.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 19
+                },
+                "end": {
+                  "line": 2,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 6,
+                  "character": 4
+                },
+                "end": {
+                  "line": 6,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 18,
+                  "character": 4
+                },
+                "end": {
+                  "line": 18,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 19,
+                  "character": 4
+                },
+                "end": {
+                  "line": 19,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 20,
+                  "character": 4
+                },
+                "end": {
+                  "line": 20,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 19
+                },
+                "end": {
+                  "line": 0,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "character": 4
+                },
+                "end": {
+                  "line": 4,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 11,
+                  "character": 4
+                },
+                "end": {
+                  "line": 11,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/logger.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/logger.py",
+              "relativePath": "logger.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef log_message(msg)\n```\n---\nPrint a timestamped log message.\n**Full name:** `logger.log_message`"
+            },
+            "range": {
+              "start": {
+                "line": 2,
+                "character": 19
+              },
+              "end": {
+                "line": 2,
+                "character": 30
+              }
+            }
+          }
+        },
+        {
+          "name": "main",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 4,
+              "character": 0
+            },
+            "end": {
+              "line": 20,
+              "character": 50
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 4,
+              "character": 4
+            },
+            "end": {
+              "line": 4,
+              "character": 8
+            }
+          },
+          "detail": "def main",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "character": 4
+                },
+                "end": {
+                  "line": 4,
+                  "character": 8
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 23,
+                  "character": 4
+                },
+                "end": {
+                  "line": 23,
+                  "character": 8
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "character": 4
+                },
+                "end": {
+                  "line": 4,
+                  "character": 8
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef main()\n```\n---\nMain entry point of the project.\n**Full name:** `main.main`"
+            },
+            "range": {
+              "start": {
+                "line": 4,
+                "character": 4
+              },
+              "end": {
+                "line": 4,
+                "character": 8
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "logger.py",
+      "symbols": [
+        {
+          "name": "datetime",
+          "kind": 2,
+          "range": {
+            "start": {
+              "line": 0,
+              "character": 0
+            },
+            "end": {
+              "line": 0,
+              "character": 15
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 0,
+              "character": 7
+            },
+            "end": {
+              "line": 0,
+              "character": 15
+            }
+          },
+          "detail": "module datetime",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/logger.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 7
+                },
+                "end": {
+                  "line": 0,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/logger.py",
+              "relativePath": "logger.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/logger.py",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "character": 11
+                },
+                "end": {
+                  "line": 4,
+                  "character": 19
+                }
+              },
+              "absolutePath": "/app/data/test_project/logger.py",
+              "relativePath": "logger.py"
+            },
+            {
+              "uri": "file:///usr/lib/python3.10/datetime.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 0
+                },
+                "end": {
+                  "line": 0,
+                  "character": 8
+                }
+              },
+              "absolutePath": "/usr/lib/python3.10/datetime.py",
+              "relativePath": "../../../usr/lib/python3.10/datetime.py"
+            },
+            {
+              "uri": "file:///usr/local/lib/python3.10/dist-packages/jedi/third_party/typeshed/stdlib/2and3/datetime.pyi",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 0
+                },
+                "end": {
+                  "line": 0,
+                  "character": 8
+                }
+              },
+              "absolutePath": "/usr/local/lib/python3.10/dist-packages/jedi/third_party/typeshed/stdlib/2and3/datetime.pyi",
+              "relativePath": "../../../usr/local/lib/python3.10/dist-packages/jedi/third_party/typeshed/stdlib/2and3/datetime.pyi"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///usr/lib/python3.10/datetime.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 0
+                },
+                "end": {
+                  "line": 0,
+                  "character": 8
+                }
+              },
+              "absolutePath": "/usr/lib/python3.10/datetime.py",
+              "relativePath": "../../../usr/lib/python3.10/datetime.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\nmodule datetime\n```\n---\n```text\nConcrete date/time and related types.\n\nSee http://www.iana.org/time-zones/repository/tz-link.html for\ntime zone and DST data sources.\n```"
+            },
+            "range": {
+              "start": {
+                "line": 0,
+                "character": 7
+              },
+              "end": {
+                "line": 0,
+                "character": 15
+              }
+            }
+          }
+        },
+        {
+          "name": "log_message",
+          "kind": 12,
+          "range": {
+            "start": {
+              "line": 2,
+              "character": 0
+            },
+            "end": {
+              "line": 5,
+              "character": 28
+            }
+          },
+          "selectionRange": {
+            "start": {
+              "line": 2,
+              "character": 4
+            },
+            "end": {
+              "line": 2,
+              "character": 15
+            }
+          },
+          "detail": "def log_message",
+          "references": [
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 1,
+                  "character": 19
+                },
+                "end": {
+                  "line": 1,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 5,
+                  "character": 4
+                },
+                "end": {
+                  "line": 5,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 14,
+                  "character": 16
+                },
+                "end": {
+                  "line": 14,
+                  "character": 27
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 19,
+                  "character": 4
+                },
+                "end": {
+                  "line": 19,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/data_utils.py",
+              "range": {
+                "start": {
+                  "line": 21,
+                  "character": 4
+                },
+                "end": {
+                  "line": 21,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/data_utils.py",
+              "relativePath": "data_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/logger.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/logger.py",
+              "relativePath": "logger.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 19
+                },
+                "end": {
+                  "line": 2,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 6,
+                  "character": 4
+                },
+                "end": {
+                  "line": 6,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 18,
+                  "character": 4
+                },
+                "end": {
+                  "line": 18,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 19,
+                  "character": 4
+                },
+                "end": {
+                  "line": 19,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/main.py",
+              "range": {
+                "start": {
+                  "line": 20,
+                  "character": 4
+                },
+                "end": {
+                  "line": 20,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/main.py",
+              "relativePath": "main.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 0,
+                  "character": 19
+                },
+                "end": {
+                  "line": 0,
+                  "character": 30
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 4,
+                  "character": 4
+                },
+                "end": {
+                  "line": 4,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            },
+            {
+              "uri": "file:///app/data/test_project/math_utils.py",
+              "range": {
+                "start": {
+                  "line": 11,
+                  "character": 4
+                },
+                "end": {
+                  "line": 11,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/math_utils.py",
+              "relativePath": "math_utils.py"
+            }
+          ],
+          "definitions": [
+            {
+              "uri": "file:///app/data/test_project/logger.py",
+              "range": {
+                "start": {
+                  "line": 2,
+                  "character": 4
+                },
+                "end": {
+                  "line": 2,
+                  "character": 15
+                }
+              },
+              "absolutePath": "/app/data/test_project/logger.py",
+              "relativePath": "logger.py"
+            }
+          ],
+          "hover": {
+            "contents": {
+              "kind": "markdown",
+              "value": "```python\ndef log_message(msg)\n```\n---\nPrint a timestamped log message.\n**Full name:** `logger.log_message`"
+            },
+            "range": {
+              "start": {
+                "line": 2,
+                "character": 4
+              },
+              "end": {
+                "line": 2,
+                "character": 15
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
