@@ -153,7 +153,8 @@ def main():
 
     # List to store processed symbol objects containing 'code_snippet'
     enriched_symbols: List[Dict[str, Any]] = []
-    
+    ALLOWED_KEYS = ["id", "file", "name", "kind", "definitions", "calls", "calledBy", "code_snippet"]
+
     emit_dir = Path(args.emit_files).resolve() if args.emit_files else None
     if emit_dir:
         emit_dir.mkdir(parents=True, exist_ok=True)
@@ -179,7 +180,8 @@ def main():
         # Error Handling: If file does not exist, keep the symbol but mark error in snippet
         if not file_path.exists():
             sym["code_snippet"] = f"# [ERROR] File not found: {file_path}"
-            enriched_symbols.append(sym)
+            filtered_sym = {k: sym.get(k) for k in ALLOWED_KEYS if k in sym}
+            enriched_symbols.append(filtered_sym)
             continue
 
         text = file_path.read_text(encoding="utf-8", errors="ignore")
@@ -197,10 +199,8 @@ def main():
 
         # [Modification] Inject code_snippet directly into the symbol object
         sym["code_snippet"] = code
-        sym["effectiveRange"] = eff_range # Optional: keep the adjusted range for reference
-        
-        # Append to the result list
-        enriched_symbols.append(sym)
+        filtered_sym = {k: sym.get(k) for k in ALLOWED_KEYS if k in sym}
+        enriched_symbols.append(filtered_sym)
 
         # Optional: Write individual .py files
         if emit_dir:
