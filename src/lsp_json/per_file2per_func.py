@@ -6,7 +6,14 @@ import argparse
 
 
 DEFAULT_OUT_ROOT = Path("data/lsp_json_outputs")
-
+LSP_SYMBOL_KINDS = {
+    1: "File", 2: "Module", 3: "Namespace", 4: "Package", 5: "Class",
+    6: "Method", 7: "Property", 8: "Field", 9: "Constructor", 10: "Enum",
+    11: "Interface", 12: "Function", 13: "Variable", 14: "Constant", 15: "String",
+    16: "Number", 17: "Boolean", 18: "Array", 19: "Object", 20: "Key",
+    21: "Null", 22: "EnumMember", 23: "Struct", 24: "Event", 25: "Operator",
+    26: "TypeParameter"
+}
 
 def merge_symbols_by_file_and_name(data: Dict[str, Any]) -> Dict[str, Any]:
     """
@@ -54,6 +61,7 @@ def merge_symbols_by_file_and_name(data: Dict[str, Any]) -> Dict[str, Any]:
         # Prefer range/selectionRange from the occurrence that lives in the definition file
         def_range = None
         def_sel_range = None
+        def_kind = None
 
         for file_name, sym in occs:
             # accumulate references/definitions
@@ -62,9 +70,7 @@ def merge_symbols_by_file_and_name(data: Dict[str, Any]) -> Dict[str, Any]:
             all_refs.extend(refs)
             all_defs.extend(defs)
 
-            hv = sym.get("hover")
-            if hv and hv not in all_hover:
-                all_hover.append(hv)
+            final_hover = None
 
             # capture range from defining occurrence
             if def_range is None and file_name == def_file:
@@ -72,15 +78,28 @@ def merge_symbols_by_file_and_name(data: Dict[str, Any]) -> Dict[str, Any]:
                     def_range = sym.get("range")
                 if "selectionRange" in sym:
                     def_sel_range = sym.get("selectionRange")
+                if def_kind is None and "kind" in sym: 
+                    def_kind = sym.get("kind")
+
+            if final_hover is None:
+                hv = sym.get("hover")
+                if hv and isinstance(hv, dict) and "contents" in hv:
+                    final_hover = hv["contents"]
+                elif hv: 
+                    final_hover = hv
+                    
+
+        kind_str = LSP_SYMBOL_KINDS.get(def_kind, "Unknown") if def_kind is not None else "Unknown"
 
         merged_result.append({
             "file": def_file,                 # always the definition file
             "name": name,
+            "kind": kind_str,
             "range": def_range,               # may be None if not present
             "selectionRange": def_sel_range,  # may be None if not present
             "references": all_refs,
             "definitions": all_defs,
-            "hover": all_hover
+            "hover": final_hover
         })
 
     return {"symbols": merged_result}

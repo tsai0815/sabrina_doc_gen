@@ -150,6 +150,7 @@ def main():
         new_sym = {
             "file": sym.get("file"),
             "name": sym.get("name"),
+            "kind": sym.get("kind"),
             "range": sym.get("range"), 
             "references": prune_references(sym.get("references", []), repo_root),
             "definitions": prune_definitions(sym.get("definitions", []), repo_root),

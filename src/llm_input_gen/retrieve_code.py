@@ -138,7 +138,7 @@ def parse_ids_arg(arg: Optional[str]) -> Optional[List[str]]:
 def main():
     ap = argparse.ArgumentParser(description="Create LLM snippets by slicing source code using LSP ranges.")
     ap.add_argument("--input-file", required=True, help="Path to final_integrated.json (or pruned JSON).")
-    ap.add_argument("--output-file", required=True, help="Where to write snippets JSON.")
+    ap.add_argument("--output-file", required=True, help="Where to write output JSON.")
     ap.add_argument("--only-ids", help="Comma list or file path of symbol IDs to include.")
     ap.add_argument("--include-externals", action="store_true", help="Also slice external symbols (ids starting with '/').")
     ap.add_argument("--include-decorators", action="store_true", help="Expand range upward to include decorators/comments.")
@@ -151,7 +151,9 @@ def main():
     symbols = data.get("symbols", [])
     want_ids = parse_ids_arg(args.only_ids)
 
-    out_snippets: List[Dict[str, Any]] = []
+    # List to store processed symbol objects containing 'code_snippet'
+    enriched_symbols: List[Dict[str, Any]] = []
+    
     emit_dir = Path(args.emit_files).resolve() if args.emit_files else None
     if emit_dir:
         emit_dir.mkdir(parents=True, exist_ok=True)
@@ -160,60 +162,60 @@ def main():
         sid = sym.get("id")
         if not isinstance(sid, str):
             continue
+        # 1. Filter by ID
         if want_ids is not None and sid not in want_ids:
             continue
+        # 2. Filter Externals
         if (not args.include_externals) and is_external_id(sid):
             continue
 
         file_path = resolve_file_path(repo_root, sym.get("file"), sid)
         rng = sym.get("range")
+        
+        # Basic validation
         if not file_path or not isinstance(rng, dict):
             continue
+        
+        # Error Handling: If file does not exist, keep the symbol but mark error in snippet
         if not file_path.exists():
-            # Still emit a record with an error string (useful for debugging externals)
-            out_snippets.append({
-                "id": sid,
-                "name": sym.get("name"),
-                "file": str(sym.get("file") or ""),
-                "fileAbs": str(file_path),
-                "range": rng,
-                "code_snippet": f"# [ERROR] File not found: {file_path}"
-            })
+            sym["code_snippet"] = f"# [ERROR] File not found: {file_path}"
+            enriched_symbols.append(sym)
             continue
 
         text = file_path.read_text(encoding="utf-8", errors="ignore")
 
-        # Optionally expand upwards for decorators/comments
+        # Range expansion logic
         eff_range = dict(rng)
         if args.include_decorators:
             eff_range = extend_upwards_for_decorators(text, eff_range)
 
-        # Optional pad
         if args.pad_lines and args.pad_lines > 0:
             eff_range = pad_range_by_lines(text, eff_range, args.pad_lines)
 
+        # Extract source code
         code = extract_by_lsp_range(text, eff_range)
 
-        rec = {
-            "id": sid,
-            "name": sym.get("name"),
-            "file": str(sym.get("file") or ""),
-            "fileAbs": str(file_path),
-            "range": rng,              # original range
-            "effectiveRange": eff_range,  # after decorator/pad adjustments
-            "code_snippet": code
-        }
-        out_snippets.append(rec)
+        # [Modification] Inject code_snippet directly into the symbol object
+        sym["code_snippet"] = code
+        sym["effectiveRange"] = eff_range # Optional: keep the adjusted range for reference
+        
+        # Append to the result list
+        enriched_symbols.append(sym)
 
-        # Optionally emit .py files for each snippet
+        # Optional: Write individual .py files
         if emit_dir:
             safe_name = sid.replace("/", "_").replace(":", "__")
             (emit_dir / f"{safe_name}.py").write_text(code, encoding="utf-8")
 
-        # Merge snippets back into the original JSON structure
-        data["snippets"] = out_snippets
-        save_json(data, Path(args.output_file))
-        print(f"[INFO] Wrote {len(out_snippets)} snippets and merged into → {args.output_file}")
+    # [Modification] Overwrite the original symbols list with the enriched list
+    data["symbols"] = enriched_symbols
+    
+    # Remove old 'snippets' field if it exists to keep JSON clean
+    if "snippets" in data:
+        del data["snippets"]
+
+    save_json(data, Path(args.output_file))
+    print(f"[INFO] Processed {len(enriched_symbols)} symbols with snippets -> {args.output_file}")
 
 if __name__ == "__main__":
     main()
